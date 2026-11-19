@@ -1,5 +1,6 @@
-package io.github.JorgeMor1.auth;
+package io.github.JorgeMor1.resource;
 
+import io.github.JorgeMor1.auth.AuthService;
 import io.github.JorgeMor1.auth.dto.request.LoginRequest;
 import io.github.JorgeMor1.auth.dto.request.RefreshTokenRequest;
 import io.github.JorgeMor1.auth.dto.request.RegisterRequest;
@@ -31,7 +32,6 @@ public class AuthResource {
     @PermitAll
     public Response register( @Valid RegisterRequest request ){
         RegisterResponse response = authService.register( request );
-
         return Response
                 .status( Response.Status.CREATED )
                 .entity( response )
